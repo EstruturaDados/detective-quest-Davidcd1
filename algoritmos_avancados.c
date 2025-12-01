@@ -6,7 +6,7 @@
 // Use as instruções de cada região para desenvolver o sistema completo com árvore binária, árvore de busca e tabela hash.
 
 /* ---------------------------------------------
-   🌳 Struct da Sala (Nível Novato)
+    Struct da Sala (Nível Novato)
 ------------------------------------------------ */
 typedef struct Sala {
     char nome[50];
@@ -34,7 +34,7 @@ int main() {
     // - Nenhuma inserção dinâmica é necessária neste nível.
 
      /* ---------------------------------------------
-       🌳 Construção fixa da árvore (mansão)
+         Construção fixa da árvore (mansão)
     ------------------------------------------------ */
 
     // Nó raiz
@@ -59,7 +59,7 @@ int main() {
     cozinha->direita = jardim;
 
     /* ---------------------------------------------
-       🚶‍♂️ Início da exploração
+        Início da exploração
     ------------------------------------------------ */
     explorarSalas(hall);
 
@@ -67,7 +67,7 @@ int main() {
 }
 
 /* ---------------------------------------------
-   🌳 criarSala()
+   criarSala()
    - Cria dinamicamente uma sala
    - Define o nome
    - Inicializa os ponteiros como NULL
@@ -96,7 +96,7 @@ void explorarSalas(Sala *atual) {
     char opcao;
 
     while (1) {
-        printf("\n📍 Você está em: %s\n", atual->nome);
+        printf("\nVocê está em: %s\n", atual->nome);
 
         // Verifica caminhos possíveis
         printf("Escolha seu caminho:\n");
@@ -107,24 +107,24 @@ void explorarSalas(Sala *atual) {
 
         scanf(" %c", &opcao);
 
-        if (opcao == 's') {
+        if (opcao == 's' || opcao == 'S') {
             printf("\nSaindo da mansão... até mais, detetive!\n");
             break;
         }
 
-        if (opcao == 'e' && atual->esquerda != NULL) {
+        if (opcao == 'e' || opcao == 'E' && atual->esquerda != NULL) {
             atual = atual->esquerda;
         }
-        else if (opcao == 'd' && atual->direita != NULL) {
+        else if (opcao == 'd' || opcao == 'D' && atual->direita != NULL) {
             atual = atual->direita;
         }
         else {
-            printf("❌ Caminho inválido! Tente novamente.\n");
+            printf("Caminho inválido! Tente novamente.\n");
         }
 
         // Se chegou a um nó-folha, acaba a exploração
         if (atual->esquerda == NULL && atual->direita == NULL) {
-            printf("\n🏁 Você chegou ao fim do caminho! Última sala visitada: %s\n", atual->nome);
+            printf("\nVocê chegou ao fim do caminho! Última sala visitada: %s\n", atual->nome);
             break;
         }
     }
