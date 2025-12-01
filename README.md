@@ -41,61 +41,55 @@ No nível Novato, você criará a árvore binária que representa o **mapa da ma
 *   Estrutura imutável em tempo de execução.
 
 ---
+🕹️ Como usar o programa
 
-## 🛡️ Nível Aventureiro: Organização de Pistas com Árvore de Busca
+Depois de compilar o código, você vai rodar um jogo simples de navegação pela mansão usando uma árvore binária. Aqui tá o passo a passo pra usar:
 
-No nível Aventureiro, você expandirá o jogo incluindo uma **árvore de busca (BST)** para armazenar pistas encontradas.
+▶️ Executando o programa
 
-🆕 **Diferença em relação ao Nível Novato:**
+Compile com:
 
-*   Agora, ao visitar certos cômodos, o jogador encontrará pistas.
-*   Essas pistas são armazenadas ordenadamente em uma BST.
+gcc main.c -o detective
 
-⚙️ **Funcionalidades do Sistema:**
 
-*   Implementar inserção e busca de strings (pistas) na árvore de busca.
-*   Permitir que o jogador visualize todas as pistas em ordem alfabética.
-*   Adicionar novas pistas automaticamente ao visitar salas específicas.
+Rode com:
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+./detective
 
-*   As pistas são cadastradas via `inserir()` ao serem encontradas.
-*   O programa pode listar todas as pistas com `emOrdem()`.
+🎮 Jogando
 
-**Simplificações para o Nível Intermediário:**
+Assim que o programa começar:
 
-*   Nenhuma remoção é necessária.
-*   Não é necessário balancear a árvore.
-*   As pistas são strings simples (nomes curtos).
+Você vai aparecer no Hall de Entrada (a raiz da árvore).
 
----
+O jogo vai mostrar as opções de movimento.
 
-## 🏆 Nível Mestre: Suspeitos e Solução com Tabela Hash
+Você controla tudo digitando apenas três letras:
 
-No nível Mestre, você implementará a **tabela hash** para vincular pistas a **suspeitos**. Agora o jogador pode consultar quem está associado a cada pista e deduzir o culpado com base nas evidências coletadas.
+Comando	Ação
+e	Ir para a sala da esquerda
+d	Ir para a sala da direita
+s	Sair da exploração
 
-🆕 **Diferença em relação ao Nível Aventureiro:**
+Exemplo de uso:
 
-*   Cada pista armazenada na BST será relacionada a um suspeito via tabela hash.
-*   Ao final, o jogador poderá ver qual suspeito está mais associado às pistas e decidir quem é o culpado.
+Você está no: Hall de Entrada
+Escolha (e = esquerda, d = direita, s = sair):
+> e
+Você está no: Sala de Jantar
 
-⚙️ **Funcionalidades do Sistema:**
 
-*   Implementar uma tabela hash (array de ponteiros ou lista encadeada).
-*   Função de inserção que relaciona pista → suspeito.
-*   Permitir consulta de todas as pistas relacionadas a cada suspeito.
-*   Mostrar o “suspeito mais citado” ao final da análise.
+O programa continua mostrando a sala atual até você chegar a uma sala sem caminhos (nó-folha) ou escolher sair (s).
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+🏁 Quando o jogo termina?
 
-*   As pistas e suspeitos são armazenados via `inserirNaHash(pista, suspeito)`.
-*   O programa exibe as associações pista → suspeito.
-*   Exibe o suspeito mais citado com base nas pistas armazenadas.
+O programa encerra quando:
 
-**Observações:**
+você chega ao final de um caminho (uma sala sem “filhos”), ou
 
-*   Pode utilizar hashing simples com função de espalhamento baseada em primeiros caracteres ou soma ASCII.
-*   O ideal é evitar colisões, mas, se ocorrerem, use encadeamento.
+você digita s para sair.
+
+Ele também exibe uma mensagem avisando que a exploração acabou.
 
 ---
 
